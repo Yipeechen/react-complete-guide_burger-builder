@@ -8,3 +8,8 @@
   - Aux: auxiliary component
     - it's a functional component where I also won't manage any state with hooks
     - don't even have any JSX in this file
+
+
+# 190. Understanding Http Requests in React
+
+* not get back a new html page from server, instead back some json data or send some json data to the server.

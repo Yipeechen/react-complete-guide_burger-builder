@@ -14,14 +14,14 @@ const withErrorHandler = (WrappedComponent, axios) => {
     // execute this code when this component here gets created
     constructor (props) {
       super(props);
-      axios.interceptors.request.use(req => {
+      this.reqInterceptor = axios.interceptors.request.use(req => {
         this.setState({
           error: null
         });
         // have to return the request config so that the request can continue and for the response
         return req;
       })
-      axios.interceptors.response.use(
+      this.resInterceptor = axios.interceptors.response.use(
         res => res,
         error => {
           this.setState({
@@ -29,6 +29,13 @@ const withErrorHandler = (WrappedComponent, axios) => {
           });
         }
       )
+    }
+
+    // executed at hte point of time, a component isn't required anymore, so when we reuse withErrorHandler in our application, we don't create more and more interceptors with old ones living on
+    componentWillUnmount() {
+      // remove the interceptors to prevent memory leaks.
+      axios.interceptors.request.eject(this.reqInterceptor);
+      axios.interceptors.response.eject(this.resInterceptor);
     }
 
     errorConfirmedHandler = () => {

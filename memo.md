@@ -18,3 +18,12 @@
 
 * withRouter(component) | react-router-dom
   - wrap our export with it, can get the history and match which are referred to the nearest match.
+
+# 254. Navigating Back & To Next Page
+
+* this.props.history.goBack()
+  - the history prop also has a go back method, which I want to execute upon cancelling.
+  - simply goes back to the last page
+
+* this.props.history.replace('checkout/contactData')
+  - replace the current route with checkout/contactData

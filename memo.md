@@ -13,3 +13,8 @@
 # 190. Understanding Http Requests in React
 
 * not get back a new html page from server, instead back some json data or send some json data to the server.
+
+# 253. Navigating to the Checkout Page
+
+* withRouter(component) | react-router-dom
+  - wrap our export with it, can get the history and match which are referred to the nearest match.

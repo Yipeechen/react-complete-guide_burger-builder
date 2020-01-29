@@ -27,3 +27,16 @@
 
 * this.props.history.replace('checkout/contactData')
   - replace the current route with checkout/contactData
+
+# 255. Passing Ingredients via Query Params
+
+* encodeURLComponent()
+- which simply encodes my elements such that they can be used in the URL,
+
+* new URLSearchParams()
+-  interface defines utility methods to work with the query string of a URL.
+-  can directly be used in a for...of structure, for example the following two lines are equivalent:
+    ```
+      for (const [key, value] of mySearchParams) {}
+      for (const [key, value] of mySearchParams.entries()) {}
+    ```

@@ -40,3 +40,9 @@
       for (const [key, value] of mySearchParams) {}
       for (const [key, value] of mySearchParams.entries()) {}
     ```
+# 270. Handling User Input
+
+* changed method should be a referenced to an anonymous function
+```
+changed={(event) => this.inputChangedHandler(event, formElement.id)}
+```

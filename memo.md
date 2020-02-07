@@ -46,3 +46,7 @@
 ```
 changed={(event) => this.inputChangedHandler(event, formElement.id)}
 ```
+
+# 271. Handling Form Submission
+
+* onSubmit: which is the event handler that can use on the from

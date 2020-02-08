@@ -20,6 +20,7 @@ class ContactData extends Component {
           required: true
         },
         valid: false,
+        errorMessage: 'Please enter a valid name',
         touched: false
       },
       street: {
@@ -174,6 +175,7 @@ class ContactData extends Component {
             elementConfig={formElement.config.elementConfig}
             value={formElement.config.value}
             invalid={!formElement.config.valid}
+            errorMessage={formElement.config.errorMessage}
             shouldValidate={formElement.config.validation}
             touched={formElement.config.touched}
             changed={(event) => this.inputChangedHandler(event, formElement.id)}

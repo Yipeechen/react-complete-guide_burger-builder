@@ -50,3 +50,6 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 # 271. Handling Form Submission
 
 * onSubmit: which is the event handler that can use on the from
+
+# 333. Executing Asynchronous Code
+* compose: from redux, allows us to compose our own set of enhancers and middleware is just one kind of enhancer

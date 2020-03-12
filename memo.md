@@ -53,3 +53,11 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 
 # 333. Executing Asynchronous Code
 * compose: from redux, allows us to compose our own set of enhancers and middleware is just one kind of enhancer
+
+# 356. Getting a Token from the Backend
+
+  * sign up document
+    https://firebase.google.com/docs/reference/rest/auth#section-create-email-password
+
+  * get apiKey
+    https://stackoverflow.com/questions/37337512/where-can-i-find-the-api-key-for-firebase-cloud-messaging

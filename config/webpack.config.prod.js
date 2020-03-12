@@ -12,6 +12,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
+const Dotenv = require('dotenv-webpack');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
@@ -243,6 +244,13 @@ module.exports = {
     // in `package.json`, in which case it will be the pathname of that URL.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    new Dotenv({
+      path: '../.env.development.local',
+      safe: true,
+      systemvars: true,
+      silent: true,
+      defaults: false,
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,

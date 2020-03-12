@@ -11,6 +11,7 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
+const Dotenv = require('dotenv-webpack');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -219,6 +220,13 @@ module.exports = {
     // In development, this will be an empty string.
     new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
+    new Dotenv({
+      path: '../.env.development.local',
+      safe: true,
+      systemvars: true,
+      silent: true,
+      defaults: false,
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,

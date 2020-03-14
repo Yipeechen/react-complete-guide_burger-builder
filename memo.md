@@ -61,3 +61,21 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 
   * get apiKey
     https://stackoverflow.com/questions/37337512/where-can-i-find-the-api-key-for-firebase-cloud-messaging
+
+#  361. Accessing Protected Resource
+
+  * Firebase - database / rules setting: to make an authentication required api
+  ```
+    {
+      "rules": {
+        "ingredients": {
+            ".read": true,
+            ".write": true
+        },
+        "orders": {
+          ".read": "auth != null",
+          ".write": "auth != null"
+        }
+      }
+    }
+  ```

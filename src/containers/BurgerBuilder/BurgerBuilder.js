@@ -43,9 +43,13 @@ class BurgerBuilder extends Component {
   // use the same method syntax purchaseHandler() {...} as use for render() {...}
   // 1. if we try to use the 'this' keyword in there, and triggered through an event due to the way the 'this' keyword works in JS, will not refer to the class
   purchaseHandler = () => {
-    this.setState({
-      purchasing: true
-    })
+    if (this.props.isAuthenticated) {
+      this.setState({
+        purchasing: true
+      });
+    } else {
+      this.props.history.push('/auth');
+    }
   }
 
   purchaseCancelHandler = () => {
@@ -81,6 +85,7 @@ class BurgerBuilder extends Component {
               disabled={disabledInfo}
               purchasable={this.updatePurchaseState(this.props.ings)}
               ordered={this.purchaseHandler}
+              isAuth={this.props.isAuthenticated}
               price={this.props.price}
             />
           </Aux>
@@ -112,6 +117,7 @@ const mapStateToProps = state => {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
     error: state.burgerBuilder.error,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 

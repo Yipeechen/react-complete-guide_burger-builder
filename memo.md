@@ -79,3 +79,12 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
       }
     }
   ```
+
+# 368. Ensuring App Security
+
+  * Exchange a refresh token for an ID token
+  - https://firebase.google.com/docs/reference/rest/auth#section-refresh-token
+  - can enhance the user experience by using the refresh token,
+    can essentially make sure the user is never logged out because as the refreshed token never expires,
+    you can refresh the main token even after a week just check for the token being valid, it isn't, take the refresh token and get a new one.
+  - but due to that security thing, I opted to not use it and I wanted to bring this to your attention.

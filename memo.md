@@ -112,3 +112,8 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
       }
     }
   ```
+
+# 372. Useful Resources & Links
+
+  * SPA Authentication in general:
+  - https://stormpath.com/blog/token-auth-spa

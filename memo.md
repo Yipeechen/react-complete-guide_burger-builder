@@ -88,3 +88,27 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
     can essentially make sure the user is never logged out because as the refreshed token never expires,
     you can refresh the main token even after a week just check for the token being valid, it isn't, take the refresh token and get a new one.
   - but due to that security thing, I opted to not use it and I wanted to bring this to your attention.
+
+# 370. Displaying User Specific Orders
+
+  * orderBy="userId"&equalTo="${userId}": want to order by that user id property on our firebase data, and we only want to fetch the data where this key, user ID is equal to
+  - orderBy: with a capital B that is a query parameter understood by firebase which allows us to well order our data.
+  - "userId": this always refers to the key you're ordering by. should be enclosed in quotation marks, in double quotation marks.
+
+  * [FireBase]
+  - if you want to be able to filter data, have to adjust our rules to make a certain field indexable so that firebase can search through it.
+  ```
+    {
+      "rules": {
+        "ingredients": {
+            ".read": true,
+            ".write": true
+        },
+        "orders": {
+          ".read": "auth != null",
+          ".write": "auth != null",
+          ".indexOn": ["userId"]     // ADD THIS LINE
+        }
+      }
+    }
+  ```

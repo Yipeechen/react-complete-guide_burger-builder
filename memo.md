@@ -51,10 +51,10 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 
 * onSubmit: which is the event handler that can use on the from
 
-# 333. Executing Asynchronous Code
+# 303. Executing Asynchronous Code
 * compose: from redux, allows us to compose our own set of enhancers and middleware is just one kind of enhancer
 
-# 356. Getting a Token from the Backend
+# 326. Getting a Token from the Backend
 
   * sign up document
     https://firebase.google.com/docs/reference/rest/auth#section-create-email-password
@@ -62,7 +62,7 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
   * get apiKey
     https://stackoverflow.com/questions/37337512/where-can-i-find-the-api-key-for-firebase-cloud-messaging
 
-#  361. Accessing Protected Resource
+#  331. Accessing Protected Resource
 
   * Firebase - database / rules setting: to make an authentication required api
   ```
@@ -80,7 +80,7 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
     }
   ```
 
-# 368. Ensuring App Security
+# 338. Ensuring App Security
 
   * Exchange a refresh token for an ID token
   - https://firebase.google.com/docs/reference/rest/auth#section-refresh-token
@@ -89,7 +89,7 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
     you can refresh the main token even after a week just check for the token being valid, it isn't, take the refresh token and get a new one.
   - but due to that security thing, I opted to not use it and I wanted to bring this to your attention.
 
-# 370. Displaying User Specific Orders
+# 340. Displaying User Specific Orders
 
   * orderBy="userId"&equalTo="${userId}": want to order by that user id property on our firebase data, and we only want to fetch the data where this key, user ID is equal to
   - orderBy: with a capital B that is a query parameter understood by firebase which allows us to well order our data.
@@ -113,7 +113,14 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
     }
   ```
 
-# 372. Useful Resources & Links
+# 342. Useful Resources & Links
 
   * SPA Authentication in general:
   - https://stormpath.com/blog/token-auth-spa
+
+
+# 347. Using Environment Variables
+
+> config/env.js
+  - NODE_ENV: it's automatically set for you and it is development if you in development mode.
+  

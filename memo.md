@@ -124,3 +124,9 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 > config/env.js
   - NODE_ENV: it's automatically set for you and it is development if you in development mode.
   
+# 355. What to test?
+
+  1. Don't test the library
+  2. Don't test complex connects
+  3. Do test isolated units
+  4. Do test your conditional outputs

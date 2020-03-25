@@ -130,3 +130,40 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
   2. Don't test complex connects
   3. Do test isolated units
   4. Do test your conditional outputs
+
+# 356. Writing our First Test
+
+  Install package
+  1. jest
+  2. enzyme: allows us to just render this navigation items component standalone independent of the entire other react application, is the whole idea behind the enzyme package, that we can really write unit tests, isolated test, test where we don;t need to render the complete react app.
+  
+  * install additional package to make it work correctly with jest and react
+  1. react-test-renderer: is a dependency of enzyme which we need to install separately
+  2. enzyme-adapter-react-16: is an adapter of the enzyme package to our current react version
+
+  * describe(): 
+  - not need to import to the file, it will automatically be made available in our create react app project
+  - takes two arguments:
+    1. description of the test bundle this file hold: is only what you'll see later in the console output, it should be something which allows you to identify which kind of tests we'll run here
+    2. testing function: it's a normal javascript function
+
+      2-1. it(): describes or allows you to write one individual test, also takes two arguments
+
+        2-1-1. description(string): which will appear in the console
+        Writing our First Test. testing function: which is something you want to test
+          - configure()
+          - Adapter
+          >> execute configure and pass a javascript object to configure.
+          - configure({adapter: new Adapter()});
+          >> To make enzyme is connected
+
+          2-1-1-1. shallow(): is the most popular or the best way of rendering react components inn many circumstances, and is the one use as often as possible because one thing shallow does is it renders the component with all its content but the content isn't deeply rendered.
+            1. <NavigationItems />: pass a react element(JSX: which need to be converted to its react create element)
+
+          2-1-1-2. expect(): is made globally available by jest, to define our the thing we want to check
+
+            1. .find(): a utility function provided by enzyme defined method, allows us to look into the wrapper and see if it contains a certain content
+            - argument is not a JSX element, it;s normal exported function from the NavigationItem file.
+
+            2. .toHaveLength(2): a utility function provided by jest, can expect to find the NavigationItem two times if we're not authenticated
+

@@ -167,3 +167,13 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
 
             2. .toHaveLength(2): a utility function provided by jest, can expect to find the NavigationItem two times if we're not authenticated
 
+# 357. Testing Components Continued
+
+  * beforeEach: will automatically be executed but for each of your tests, you also have an afterEach function to cleanup after all tests if you need do.
+    -  is a helper method we can ues inside the describe function
+    - constantly do the same
+    - take a function as an argument
+
+  * component.setProps({key: value})
+    - is a helper method from the enzyme package
+    - pass a javascript object

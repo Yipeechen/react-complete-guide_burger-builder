@@ -177,3 +177,19 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
   * component.setProps({key: value})
     - is a helper method from the enzyme package
     - pass a javascript object
+
+# 358. Jest and Enzyme Documentations
+
+  1. jest: https://jestjs.io/docs/en/mock-function-api
+    * Mock Functions: 
+      - is especially useful when working with some async code where you don't want to execute that actual code, you don't want to reach out to the web,  want to step in and replace that function with a function that just returns some demo data
+  
+  2. enzyme: https://enzymejs.github.io/enzyme/
+    * shallow rendering:
+
+    * full rendering:
+      - is useful if you want render the complete component tree, rarely be the case, but you might have some circumstances where you want to test some cross component dependency, always see if you can solve it with a unit test first though.
+
+    * contains:
+      - use this contains helper because the contains helper, unlike find does not take an element type or a css selector to be precise, takes a real node and you can therefore check if you have a exact match.
+

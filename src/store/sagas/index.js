@@ -11,6 +11,10 @@ import {
 import {
   initIngredientsSaga,
 } from './burgerBuilder';
+import {
+  purchaserBurgerSaga,
+  fetchOrdersSaga,
+} from './order';
 
 export function* watchAuth() { // generator
   // takeEvery() takes a second argument, this second argument is the generator, the saga we then want to execute when this action occurs and that would be the logout saga.
@@ -22,4 +26,9 @@ export function* watchAuth() { // generator
 
 export function* watchBurgerBuilder() {
   yield takeEvery(actionTypes.INIT_INGREDIENTS, initIngredientsSaga); // listener
+}
+
+export function* watchOrder() {
+  yield takeEvery(actionTypes.PURCHASE_BURGER, purchaserBurgerSaga); // listener
+  yield takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga); // listener
 }

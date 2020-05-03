@@ -193,3 +193,9 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
     * contains:
       - use this contains helper because the contains helper, unlike find does not take an element type or a css selector to be precise, takes a real node and you can therefore check if you have a exact match.
 
+# 418. Handling Auto-Sign-In with a Saga
+
+  1. adding more sagas in new files,
+  2. set up watchers
+  3. replace the code you have in burgerBuilder.js in the actions folder and in order.js  with saga code to outsource all your side effects into sagas
+

@@ -199,3 +199,18 @@ changed={(event) => this.inputChangedHandler(event, formElement.id)}
   2. set up watchers
   3. replace the code you have in burgerBuilder.js in the actions folder and in order.js  with saga code to outsource all your side effects into sagas
 
+# 422. Diving Deeper into Sagas
+
+  reference: https://redux-saga.js.org/docs/api/
+
+  1. Call is a function which allows you to call some function on some object
+    call([first argument, second element], second argument)
+    - a first argument, pass an array where the first element is local storage
+    - a second element, pass that function you want to execute
+    - pass a second argument to the call function
+    > makes your generators testable
+    > you can use call wherever you use some object and call something including axios of course or these local storage calls.
+
+  2. all()
+    - pass an array of all the actions we want to yield
+    - run multiple generators or multiple tasks

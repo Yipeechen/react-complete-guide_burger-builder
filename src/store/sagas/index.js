@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects';
+import { takeEvery, all, takeLatest } from 'redux-saga/effects';
 //  allow us to listen to certain actions and do something when they occur
 
 import * as actionTypes from '../actions/actionTypes';
@@ -18,10 +18,12 @@ import {
 
 export function* watchAuth() { // generator
   // takeEvery() takes a second argument, this second argument is the generator, the saga we then want to execute when this action occurs and that would be the logout saga.
-  yield takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga); // listener
-  yield takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga); // listener
-  yield takeEvery(actionTypes.AUTH_USER, authUserSaga); // listener
-  yield takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckStateSaga); // listener
+  yield all([
+    takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga), // listener
+    takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga), // listener
+    takeEvery(actionTypes.AUTH_USER, authUserSaga), // listener
+    takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckStateSaga), // listener
+  ]);
 }
 
 export function* watchBurgerBuilder() {
@@ -29,6 +31,6 @@ export function* watchBurgerBuilder() {
 }
 
 export function* watchOrder() {
-  yield takeEvery(actionTypes.PURCHASE_BURGER, purchaserBurgerSaga); // listener
+  yield takeLatest(actionTypes.PURCHASE_BURGER, purchaserBurgerSaga); // listener
   yield takeEvery(actionTypes.FETCH_ORDERS, fetchOrdersSaga); // listener
 }

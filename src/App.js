@@ -20,10 +20,11 @@ const Auth = React.lazy(() => {
 });
 
 const app = props => {
+  const { onTryAutoSignup } = this.props;
   // pass an empty array as second argument: means this will only run once when the component is mounted
   useEffect(() => {
-    props.onTryAutoSignup();
-  }, []);
+    onTryAutoSignup();
+  }, [onTryAutoSignup]);
 
   let routes = (
     <Switch>
